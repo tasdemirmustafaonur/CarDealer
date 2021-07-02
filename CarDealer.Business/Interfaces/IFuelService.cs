@@ -13,5 +13,6 @@ namespace CarDealer.Business.Interfaces
         FuelListResponse GetFuelById(int id);
         int AddFuel(AddNewFuelRequest request);
         int UpdateFuel(EditFuelRequest request);
+        void DeleteFuel(int id);
     }
 }
