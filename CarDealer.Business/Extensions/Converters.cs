@@ -58,6 +58,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<BrandListResponse>(brand);
         }
 
+        public static BodyTypeListResponse ConvertFromEntity(this BodyType bodyType, IMapper mapper)
+        {
+            return mapper.Map<BodyTypeListResponse>(bodyType);
+        }
+
         //         CONVERT TO ENTİY EDİT
 
         public static Category ConvertToEntity(this EditCategoryRequest request, IMapper mapper)

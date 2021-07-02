@@ -25,5 +25,17 @@ namespace CarDealer.API.Controllers
             var result = service.GetAllBodyTypes();
             return Ok(result);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var bodyTypeListResponse = service.GetBodyTypeById(id);
+            if (bodyTypeListResponse != null)
+            {
+                return Ok(bodyTypeListResponse);
+            }
+
+            return NotFound();
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace CarDealer.Business.Interfaces
     public interface IBodyTypeService
     {
         IList<BodyTypeListResponse> GetAllBodyTypes();
+        BodyTypeListResponse GetBodyTypeById(int id);
     }
 }
