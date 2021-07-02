@@ -46,6 +46,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<Brand>(request);
         }
 
+        public static BodyType ConvertToBodyType(this AddNewBodyTypeRequest request, IMapper mapper)
+        {
+            return mapper.Map<BodyType>(request);
+        }
+
         //          CONVERT FROM ENTİTY
 
         public static CategoryListResponse ConvertFromEntity(this Category category, IMapper mapper)
@@ -73,6 +78,11 @@ namespace CarDealer.Business.Extensions
         public static Brand ConvertToEntity(this EditBrandRequest request, IMapper mapper)
         {
             return mapper.Map<Brand>(request);
+        }
+
+        public static BodyType ConvertToEntity(this EditBodyTypeRequest request, IMapper mapper)
+        {
+            return mapper.Map<BodyType>(request);
         }
 
     }

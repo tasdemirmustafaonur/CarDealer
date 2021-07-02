@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarDealer.API.Filters;
+using CarDealer.Business.DataTransferObjects;
 
 namespace CarDealer.API.Controllers
 {
@@ -38,6 +39,31 @@ namespace CarDealer.API.Controllers
             }
 
             return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult AddBodyTypes(AddNewBodyTypeRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int bodyTypeId = service.AddBodyType(request);
+                return CreatedAtAction(nameof(GetById), routeValues: new {id = bodyTypeId}, value: null);
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpPut("{id}")]
+        [BodyTypeExists]
+        public IActionResult UpdateBodyType(int id, EditBodyTypeRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int newItemId = service.UpdateBodyType(request);
+                return Ok();
+            }
+
+            return BadRequest(ModelState);
         }
     }
 }

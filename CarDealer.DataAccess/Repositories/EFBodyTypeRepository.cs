@@ -36,7 +36,9 @@ namespace CarDealer.DataAccess.Repositories
 
         public BodyType Add(BodyType entity)
         {
-            throw new NotImplementedException();
+            db.BodyTypes.Add(entity);
+            db.SaveChanges();
+            return entity;
         }
 
         public BodyType Update(BodyType entity)

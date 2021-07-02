@@ -34,5 +34,19 @@ namespace CarDealer.Business.Services
             BodyType bodyType = bodyTypeRepository.GetById(id);
             return bodyType.ConvertFromEntity(mapper);
         }
+
+        public int AddBodyType(AddNewBodyTypeRequest request)
+        {
+            var newBodyType = request.ConvertToBodyType(mapper);
+            bodyTypeRepository.Add(newBodyType);
+            return newBodyType.Id;
+        }
+
+        public int UpdateBodyType(EditBodyTypeRequest request)
+        {
+            var bodyType = request.ConvertToEntity(mapper);
+            int id = bodyTypeRepository.Update(bodyType).Id;
+            return id;
+        }
     }
 }

@@ -11,5 +11,8 @@ namespace CarDealer.Business.Interfaces
     {
         IList<BodyTypeListResponse> GetAllBodyTypes();
         BodyTypeListResponse GetBodyTypeById(int id);
+        int AddBodyType(AddNewBodyTypeRequest request);
+        int UpdateBodyType(EditBodyTypeRequest request);
+
     }
 }
