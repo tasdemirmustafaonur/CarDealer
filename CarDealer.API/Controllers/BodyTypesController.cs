@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarDealer.API.Filters;
 
 namespace CarDealer.API.Controllers
 {
@@ -27,6 +28,7 @@ namespace CarDealer.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [BodyTypeExists]
         public IActionResult GetById(int id)
         {
             var bodyTypeListResponse = service.GetBodyTypeById(id);
