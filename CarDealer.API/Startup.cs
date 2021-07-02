@@ -42,6 +42,8 @@ namespace CarDealer.API
             services.AddScoped<IBrandRepository, EFBrandRepository>();
             services.AddScoped<ICategoryBrandService, CategoryBrandService>();
             services.AddScoped<ICategoryBrandRepository, EFCategoryBrandRepository>();
+            services.AddScoped<IBodyTypeService, BodyTypeService>();
+            services.AddScoped<IBodyTypeRepository, EFBodyTypeRepository>();
             services.AddScoped<IVehicleService, VehicleService>();
             services.AddScoped<IVehicleRepository, EFVehicleRepository>();
             services.AddScoped<IModelService, ModelService>();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarDealer.Business.DataTransferObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace CarDealer.Business.Interfaces
 {
     public interface IBodyTypeService
     {
-
+        IList<BodyTypeListResponse> GetAllBodyTypes();
     }
 }

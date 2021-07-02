@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CarDealer.Business.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,13 @@ namespace CarDealer.API.Controllers
         public BodyTypesController(IBodyTypeService bodyTypeService)
         {
             service = bodyTypeService;
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var result = service.GetAllBodyTypes();
+            return Ok(result);
         }
     }
 }

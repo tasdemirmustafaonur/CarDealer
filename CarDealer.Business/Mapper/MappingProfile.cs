@@ -23,6 +23,8 @@ namespace CarDealer.Business.Mapper
 
             CreateMap<CategoryBrand, CategoryBrandListResponse>().ReverseMap();
 
+            CreateMap<BodyType, BodyTypeListResponse>().ReverseMap();
+
 
         }
     }

@@ -29,6 +29,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<List<CategoryBrandListResponse>>(categoryBrands);
         }
 
+        public static List<BodyTypeListResponse> ConvertToListResponse(this List<BodyType> bodyTypes, IMapper mapper)
+        {
+            return mapper.Map<List<BodyTypeListResponse>>(bodyTypes);
+        }
+
         //       ADD NEW ENTİTY REQUEST
 
         public static Category ConvertToCategory(this AddNewCategoryRequest request, IMapper mapper)
