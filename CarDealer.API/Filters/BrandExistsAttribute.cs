@@ -8,23 +8,23 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace CarDealer.API.Filters
 {
-    public class CategoryExistsAttribute : TypeFilterAttribute
+    public class BrandExistsAttribute : TypeFilterAttribute
     {
-        public CategoryExistsAttribute():base(typeof(CategoryExistingFilter))
+        public BrandExistsAttribute():base(typeof(BrandExistingFilter))
         {
-
+            
         }
 
-        private class CategoryExistingFilter : IAsyncActionFilter
+        private class BrandExistingFilter : IAsyncActionFilter
         {
-            private ICategoryService categoryService;
+            private IBrandService brandService;
 
-            public CategoryExistingFilter(ICategoryService categoryService)
+            public BrandExistingFilter(IBrandService brandService)
             {
-                this.categoryService = categoryService;
+                this.brandService = brandService;
             }
+
             public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
-            
             {
                 if (!context.ActionArguments.ContainsKey("id"))
                 {
@@ -38,10 +38,10 @@ namespace CarDealer.API.Filters
                     return;
                 }
 
-                var category = categoryService.GetCategoryById(id);
-                if (category==null)
+                var category = brandService.GetBrandById(id);
+                if (category == null)
                 {
-                    context.Result = new NotFoundObjectResult(new {Message = $"{id} nolu tür bulunamadı."});
+                    context.Result = new NotFoundObjectResult(new { Message = $"{id} nolu marka bulunamadı." });
                     return;
                 }
 

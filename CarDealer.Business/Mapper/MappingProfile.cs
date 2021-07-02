@@ -16,6 +16,14 @@ namespace CarDealer.Business.Mapper
             CreateMap<Category, CategoryListResponse>().ReverseMap();
             CreateMap<Category, AddNewCategoryRequest>().ReverseMap();
             CreateMap<Category, EditCategoryRequest>().ReverseMap();
+
+            CreateMap<Brand, BrandListResponse>().ReverseMap();
+            CreateMap<Brand, AddNewBrandRequest>().ReverseMap();
+            CreateMap<Brand, EditBrandRequest>().ReverseMap();
+
+            CreateMap<CategoryBrand, CategoryBrandListResponse>().ReverseMap();
+
+
         }
     }
 }

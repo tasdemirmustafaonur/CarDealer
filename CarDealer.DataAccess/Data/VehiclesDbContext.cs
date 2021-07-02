@@ -24,6 +24,7 @@ namespace CarDealer.DataAccess.Data
         public DbSet<User> Users { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Town> Towns { get; set; }
+        public DbSet<CategoryBrand> CategoryBrands { get; set; }
 
 
         public VehiclesDbContext()
@@ -52,6 +53,10 @@ namespace CarDealer.DataAccess.Data
                 .WithMany()
                 .HasForeignKey(m => m.SeriesId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<CarDealer.Models.CategoryBrand>()
+                .ToTable("CategoryBrand");
+
 
             base.OnModelCreating(modelBuilder);
         }
