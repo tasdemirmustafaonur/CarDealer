@@ -39,6 +39,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<List<FuelListResponse>>(fuels);
         }
 
+        public static List<GearListResponse> ConvertToListResponse(this List<Gear> gears, IMapper mapper)
+        {
+            return mapper.Map<List<GearListResponse>>(gears);
+        }
+
         //       ADD NEW ENTİTY REQUEST
 
         public static Category ConvertToCategory(this AddNewCategoryRequest request, IMapper mapper)

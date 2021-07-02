@@ -31,6 +31,8 @@ namespace CarDealer.Business.Mapper
             CreateMap<Fuel, AddNewFuelRequest>().ReverseMap();
             CreateMap<Fuel, EditFuelRequest>().ReverseMap();
 
+            CreateMap<Gear, GearListResponse>().ReverseMap();
+
 
         }
     }
