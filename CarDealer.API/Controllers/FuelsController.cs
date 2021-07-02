@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarDealer.API.Filters;
 using CarDealer.Business.Interfaces;
+using CarDealer.Business.DataTransferObjects;
 
 namespace CarDealer.API.Controllers
 {
@@ -37,5 +39,19 @@ namespace CarDealer.API.Controllers
 
             return NotFound();
         }
+
+        [HttpPost]
+        public IActionResult AddFuels(AddNewFuelRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int fuelId = service.AddFuel(request);
+                return CreatedAtAction(nameof(GetById), routeValues: new {id = fuelId}, value: null);
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        
     }
 }

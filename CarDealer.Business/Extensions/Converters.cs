@@ -56,6 +56,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<BodyType>(request);
         }
 
+        public static Fuel ConvertToFuel(this AddNewFuelRequest request, IMapper mapper)
+        {
+            return mapper.Map<Fuel>(request);
+        }
+
         //          CONVERT FROM ENTİTY
 
         public static CategoryListResponse ConvertFromEntity(this Category category, IMapper mapper)

@@ -21,7 +21,9 @@ namespace CarDealer.DataAccess.Repositories
         }
         public Fuel Add(Fuel entity)
         {
-            throw new NotImplementedException();
+            db.Fuels.Add(entity);
+            db.SaveChanges();
+            return entity;
         }
 
         public void Delete(int id)
