@@ -100,5 +100,10 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<BodyType>(request);
         }
 
+        public static Fuel ConvertToEntity(this EditFuelRequest request, IMapper mapper)
+        {
+            return mapper.Map<Fuel>(request);
+        }
+
     }
 }

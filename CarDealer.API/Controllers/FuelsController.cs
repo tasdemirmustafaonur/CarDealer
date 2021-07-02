@@ -52,6 +52,17 @@ namespace CarDealer.API.Controllers
             return BadRequest(ModelState);
         }
 
-        
+        [HttpPut("{id}")]
+        [FuelExists]
+        public IActionResult UpdateFuel(int id, EditFuelRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int newItemId = service.UpdateFuel(request);
+                return Ok();
+            }
+
+            return BadRequest(ModelState);
+        }
     }
 }

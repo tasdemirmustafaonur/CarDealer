@@ -41,5 +41,12 @@ namespace CarDealer.Business.Services
             fuelRepository.Add(newFuel);
             return newFuel.Id;
         }
+
+        public int UpdateFuel(EditFuelRequest request)
+        {
+            var fuel = request.ConvertToEntity(mapper);
+            int id = fuelRepository.Update(fuel).Id;
+            return id;
+        }
     }
 }
