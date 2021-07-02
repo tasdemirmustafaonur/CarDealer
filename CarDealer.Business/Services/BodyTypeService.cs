@@ -48,5 +48,10 @@ namespace CarDealer.Business.Services
             int id = bodyTypeRepository.Update(bodyType).Id;
             return id;
         }
+
+        public void DeleteBodyType(int id)
+        {
+            bodyTypeRepository.Delete(id);
+        }
     }
 }

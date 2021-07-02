@@ -13,6 +13,7 @@ namespace CarDealer.Business.Interfaces
         BodyTypeListResponse GetBodyTypeById(int id);
         int AddBodyType(AddNewBodyTypeRequest request);
         int UpdateBodyType(EditBodyTypeRequest request);
+        void DeleteBodyType(int id);
 
     }
 }
