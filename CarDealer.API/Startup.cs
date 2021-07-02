@@ -38,14 +38,22 @@ namespace CarDealer.API
             services.AddMapperConfiguration();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ICategoryRepository, EFCategoryRepository>();
+
             services.AddScoped<IBrandService, BrandService>();
             services.AddScoped<IBrandRepository, EFBrandRepository>();
+
             services.AddScoped<ICategoryBrandService, CategoryBrandService>();
             services.AddScoped<ICategoryBrandRepository, EFCategoryBrandRepository>();
+
             services.AddScoped<IBodyTypeService, BodyTypeService>();
             services.AddScoped<IBodyTypeRepository, EFBodyTypeRepository>();
+
+            services.AddScoped<IFuelService, FuelService>();
+            services.AddScoped<IFuelRepository, EFFuelRepository>();
+
             services.AddScoped<IVehicleService, VehicleService>();
             services.AddScoped<IVehicleRepository, EFVehicleRepository>();
+
             services.AddScoped<IModelService, ModelService>();
             services.AddScoped<IModelRepository, EFModelRepository>();
             var connectionString = Configuration.GetConnectionString("db");
