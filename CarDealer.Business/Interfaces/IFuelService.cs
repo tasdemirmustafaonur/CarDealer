@@ -10,5 +10,6 @@ namespace CarDealer.Business.Interfaces
     public interface IFuelService
     {
         IList<FuelListResponse> GetAllFuels();
+        FuelListResponse GetFuelById(int id);
     }
 }

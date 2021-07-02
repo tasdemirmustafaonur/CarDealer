@@ -12,18 +12,30 @@ namespace CarDealer.API.Controllers
     [ApiController]
     public class FuelsController : ControllerBase
     {
-        private IFuelService fuelService;
+        private IFuelService service;
 
         public FuelsController(IFuelService fuelService)
         {
-            this.fuelService = fuelService;
+            service = fuelService;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var result = fuelService.GetAllFuels();
+            var result = service.GetAllFuels();
             return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var fuelListResponse = service.GetFuelById(id);
+            if (fuelListResponse != null)
+            {
+                return Ok(fuelListResponse);
+            }
+
+            return NotFound();
         }
     }
 }

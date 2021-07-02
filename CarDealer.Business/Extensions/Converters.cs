@@ -73,6 +73,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<BodyTypeListResponse>(bodyType);
         }
 
+        public static FuelListResponse ConvertFromEntity(this Fuel fuel, IMapper mapper)
+        {
+            return mapper.Map<FuelListResponse>(fuel);
+        }
+
         //         CONVERT TO ENTİY EDİT
 
         public static Category ConvertToEntity(this EditCategoryRequest request, IMapper mapper)
