@@ -10,5 +10,6 @@ namespace CarDealer.Business.Interfaces
     public interface IWheelDriveService
     {
         IList<WheelDriveListResponse> GetAllWheelDrives();
+        WheelDriveListResponse GetWheelDriveById(int id);
     }
 }

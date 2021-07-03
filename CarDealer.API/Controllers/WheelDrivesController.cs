@@ -25,5 +25,19 @@ namespace CarDealer.API.Controllers
             var result = service.GetAllWheelDrives();
             return Ok(result);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var wheelDriveListResponse = service.GetWheelDriveById(id);
+            if (wheelDriveListResponse != null)
+            {
+                return Ok(wheelDriveListResponse);
+            }
+
+            return NotFound();
+        }
+
+
     }
 }

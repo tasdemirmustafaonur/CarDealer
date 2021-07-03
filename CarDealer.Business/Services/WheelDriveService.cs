@@ -8,6 +8,7 @@ using CarDealer.Business.DataTransferObjects;
 using CarDealer.Business.Extensions;
 using CarDealer.Business.Interfaces;
 using CarDealer.DataAccess.Interfaces;
+using CarDealer.Models;
 
 namespace CarDealer.Business.Services
 {
@@ -26,6 +27,12 @@ namespace CarDealer.Business.Services
             var dtoList = wheelDriveRepository.GetAll().ToList();
             var result = dtoList.ConvertToListResponse(mapper);
             return result;
+        }
+
+        public WheelDriveListResponse GetWheelDriveById(int id)
+        {
+            WheelDrive wheelDrive = wheelDriveRepository.GetById(id);
+            return wheelDrive.ConvertFromEntity(mapper);
         }
     }
 }

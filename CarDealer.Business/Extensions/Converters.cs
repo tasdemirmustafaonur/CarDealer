@@ -49,6 +49,8 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<List<WheelDriveListResponse>>(wheelDrives);
         }
 
+        
+
         //       ADD NEW ENTİTY REQUEST
 
         public static Category ConvertToCategory(this AddNewCategoryRequest request, IMapper mapper)
@@ -101,6 +103,11 @@ namespace CarDealer.Business.Extensions
         public static GearListResponse ConvertFromEntity(this Gear gear, IMapper mapper)
         {
             return mapper.Map<GearListResponse>(gear);
+        }
+
+        public static WheelDriveListResponse ConvertFromEntity(this WheelDrive wheelDrive, IMapper mapper)
+        {
+            return mapper.Map<WheelDriveListResponse>(wheelDrive);
         }
 
         //         CONVERT TO ENTİY EDİT
