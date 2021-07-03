@@ -54,6 +54,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<List<ColorListResponse>>(colors);
         }
 
+        public static List<SeriesListResponse> ConvertToListResponse(this List<Series> series, IMapper mapper)
+        {
+            return mapper.Map<List<SeriesListResponse>>(series);
+        }
+
 
 
         //       ADD NEW ENTİTY REQUEST

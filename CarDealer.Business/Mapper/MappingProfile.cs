@@ -43,6 +43,8 @@ namespace CarDealer.Business.Mapper
             CreateMap<Color, AddNewColorRequest>().ReverseMap();
             CreateMap<Color, EditColorRequest>().ReverseMap();
 
+            CreateMap<Series, SeriesListResponse>().ReverseMap();
+
         }
     }
 }
