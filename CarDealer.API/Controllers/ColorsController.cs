@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
+using CarDealer.API.Filters;
+using CarDealer.Business.DataTransferObjects;
 
 namespace CarDealer.API.Controllers
 {
@@ -28,6 +30,7 @@ namespace CarDealer.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [ColorExists]
         public IActionResult GetById(int id)
         {
             var colorListResponse = service.GetColorById(id);
@@ -37,6 +40,18 @@ namespace CarDealer.API.Controllers
             }
 
             return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult AddColors(AddNewColorRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int colorId = service.AddColor(request);
+                return CreatedAtAction(nameof(GetById), routeValues: new {id = colorId}, value: null);
+            }
+
+            return BadRequest(ModelState);
         }
 
     }

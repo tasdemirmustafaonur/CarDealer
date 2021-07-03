@@ -88,6 +88,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<WheelDrive>(request);
         }
 
+        public static Color ConvertToColor(this AddNewColorRequest request, IMapper mapper)
+        {
+            return mapper.Map<Color>(request);
+        }
+
         //          CONVERT FROM ENTİTY
 
         public static CategoryListResponse ConvertFromEntity(this Category category, IMapper mapper)

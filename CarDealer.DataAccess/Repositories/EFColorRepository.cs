@@ -21,7 +21,9 @@ namespace CarDealer.DataAccess.Repositories
         }
         public Color Add(Color entity)
         {
-            throw new NotImplementedException();
+            db.Colors.Add(entity);
+            db.SaveChanges();
+            return entity;
         }
 
         public void Delete(int id)

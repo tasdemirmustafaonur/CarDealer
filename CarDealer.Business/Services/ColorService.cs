@@ -22,6 +22,14 @@ namespace CarDealer.Business.Services
             this.colorRepository = colorRepository;
             this.mapper = mapper;
         }
+
+        public int AddColor(AddNewColorRequest request)
+        {
+            var newColor = request.ConvertToColor(mapper);
+            colorRepository.Add(newColor);
+            return newColor.Id;
+        }
+
         public IList<ColorListResponse> GetAllColors()
         {
             var dtoList = colorRepository.GetAll().ToList();

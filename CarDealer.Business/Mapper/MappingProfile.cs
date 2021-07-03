@@ -40,6 +40,7 @@ namespace CarDealer.Business.Mapper
             CreateMap<WheelDrive, EditWheelDriveRequest>().ReverseMap();
 
             CreateMap<Color, ColorListResponse>().ReverseMap();
+            CreateMap<Color, AddNewColorRequest>().ReverseMap();
 
         }
     }
