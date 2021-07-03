@@ -30,6 +30,11 @@ namespace CarDealer.Business.Services
             return newWheelDrive.Id;
         }
 
+        public void DeleteWheelDrive(int id)
+        {
+            wheelDriveRepository.Delete(id);
+        }
+
         public IList<WheelDriveListResponse> GetAllWheelDrives()
         {
             var dtoList = wheelDriveRepository.GetAll().ToList();
@@ -41,6 +46,13 @@ namespace CarDealer.Business.Services
         {
             WheelDrive wheelDrive = wheelDriveRepository.GetById(id);
             return wheelDrive.ConvertFromEntity(mapper);
+        }
+
+        public int UpdateWheelDrive(EditWheelDriveRequest request)
+        {
+            var wheelDrive = request.ConvertToEntity(mapper);
+            int id = wheelDriveRepository.Update(wheelDrive).Id;
+            return id;
         }
     }
 }

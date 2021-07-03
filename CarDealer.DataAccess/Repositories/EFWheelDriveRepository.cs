@@ -28,7 +28,9 @@ namespace CarDealer.DataAccess.Repositories
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            db.WheelDrives.Remove(GetById(id));
+            db.SaveChanges();
+
         }
 
         public IList<WheelDrive> GetAll()
@@ -48,7 +50,9 @@ namespace CarDealer.DataAccess.Repositories
 
         public WheelDrive Update(WheelDrive entity)
         {
-            throw new NotImplementedException();
+            db.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return entity;
         }
     }
 }

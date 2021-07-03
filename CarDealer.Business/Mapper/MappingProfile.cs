@@ -37,6 +37,7 @@ namespace CarDealer.Business.Mapper
 
             CreateMap<WheelDrive, WheelDriveListResponse>().ReverseMap();
             CreateMap<WheelDrive, AddNewWheelDriveRequest>().ReverseMap();
+            CreateMap<WheelDrive, EditWheelDriveRequest>().ReverseMap();
 
         }
     }

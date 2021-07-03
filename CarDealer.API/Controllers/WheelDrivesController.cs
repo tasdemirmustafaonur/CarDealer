@@ -53,7 +53,27 @@ namespace CarDealer.API.Controllers
             return BadRequest(ModelState);
         }
 
-        
+        [HttpPut("{id}")]
+        [WheelDriveExists]
+        public IActionResult UpdateWheelDrive(int id, EditWheelDriveRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int newItemId = service.UpdateWheelDrive(request);
+                return Ok();
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpDelete("{id}")]
+        [WheelDriveExists]
+        public IActionResult DeLete(int id)
+        {
+            service.DeleteWheelDrive(id);
+            return Ok();
+        }
+
 
 
     }

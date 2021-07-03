@@ -142,5 +142,10 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<Gear>(request);
         }
 
+        public static WheelDrive ConvertToEntity(this EditWheelDriveRequest request, IMapper mapper)
+        {
+            return mapper.Map<WheelDrive>(request);
+        }
+
     }
 }
