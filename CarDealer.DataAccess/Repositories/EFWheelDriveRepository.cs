@@ -21,7 +21,9 @@ namespace CarDealer.DataAccess.Repositories
         }
         public WheelDrive Add(WheelDrive entity)
         {
-            throw new NotImplementedException();
+            db.WheelDrives.Add(entity);
+            db.SaveChanges();
+            return entity;
         }
 
         public void Delete(int id)

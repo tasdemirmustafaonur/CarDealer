@@ -11,5 +11,6 @@ namespace CarDealer.Business.Interfaces
     {
         IList<WheelDriveListResponse> GetAllWheelDrives();
         WheelDriveListResponse GetWheelDriveById(int id);
+        int AddWheelDrive(AddNewWheelDriveRequest request);
     }
 }

@@ -22,6 +22,14 @@ namespace CarDealer.Business.Services
             this.wheelDriveRepository = wheelDriveRepository;
             this.mapper = mapper;
         }
+
+        public int AddWheelDrive(AddNewWheelDriveRequest request)
+        {
+            var newWheelDrive = request.ConvertToWheelDrive(mapper);
+            wheelDriveRepository.Add(newWheelDrive);
+            return newWheelDrive.Id;
+        }
+
         public IList<WheelDriveListResponse> GetAllWheelDrives()
         {
             var dtoList = wheelDriveRepository.GetAll().ToList();

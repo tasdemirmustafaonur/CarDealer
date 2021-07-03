@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarDealer.API.Filters;
+using CarDealer.Business.DataTransferObjects;
 using CarDealer.Business.Interfaces;
 
 namespace CarDealer.API.Controllers
@@ -27,6 +29,7 @@ namespace CarDealer.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [WheelDriveExists]
         public IActionResult GetById(int id)
         {
             var wheelDriveListResponse = service.GetWheelDriveById(id);
@@ -37,6 +40,20 @@ namespace CarDealer.API.Controllers
 
             return NotFound();
         }
+
+        [HttpPost]
+        public IActionResult AddWheelDrives(AddNewWheelDriveRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int wheelDriveId = service.AddWheelDrive(request);
+                return CreatedAtAction(nameof(GetById), routeValues: new {id = wheelDriveId}, value: null);
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        
 
 
     }

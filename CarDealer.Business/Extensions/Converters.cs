@@ -78,6 +78,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<Gear>(request);
         }
 
+        public static WheelDrive ConvertToWheelDrive(this AddNewWheelDriveRequest request, IMapper mapper)
+        {
+            return mapper.Map<WheelDrive>(request);
+        }
+
         //          CONVERT FROM ENTİTY
 
         public static CategoryListResponse ConvertFromEntity(this Category category, IMapper mapper)
