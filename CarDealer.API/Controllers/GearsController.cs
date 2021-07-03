@@ -25,5 +25,17 @@ namespace CarDealer.API.Controllers
             var result = service.GetAllGears();
             return Ok(result);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var gearListResponse = service.GetGearById(id);
+            if (gearListResponse != null)
+            {
+                return Ok(gearListResponse);
+            }
+
+            return NotFound();
+        }
     }
 }

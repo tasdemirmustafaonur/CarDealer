@@ -10,5 +10,6 @@ namespace CarDealer.Business.Interfaces
     public interface IGearService
     {
         IList<GearListResponse> GetAllGears();
+        GearListResponse GetGearById(int id);
     }
 }

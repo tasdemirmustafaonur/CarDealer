@@ -88,6 +88,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<FuelListResponse>(fuel);
         }
 
+        public static GearListResponse ConvertFromEntity(this Gear gear, IMapper mapper)
+        {
+            return mapper.Map<GearListResponse>(gear);
+        }
+
         //         CONVERT TO ENTİY EDİT
 
         public static Category ConvertToEntity(this EditCategoryRequest request, IMapper mapper)
