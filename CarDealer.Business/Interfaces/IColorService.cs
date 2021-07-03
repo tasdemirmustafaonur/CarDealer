@@ -10,5 +10,6 @@ namespace CarDealer.Business.Interfaces
     public interface IColorService
     {
         IList<ColorListResponse> GetAllColors();
+        ColorListResponse GetColorById(int id);
     }
 }

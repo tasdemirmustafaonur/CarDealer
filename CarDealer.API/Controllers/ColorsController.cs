@@ -26,5 +26,18 @@ namespace CarDealer.API.Controllers
             var result = service.GetAllColors();
             return Ok(result);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var colorListResponse = service.GetColorById(id);
+            if (colorListResponse != null)
+            {
+                return Ok(colorListResponse);
+            }
+
+            return NotFound();
+        }
+
     }
 }

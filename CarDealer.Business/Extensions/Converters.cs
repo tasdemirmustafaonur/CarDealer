@@ -120,6 +120,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<WheelDriveListResponse>(wheelDrive);
         }
 
+        public static ColorListResponse ConvertFromEntity(this Color color, IMapper mapper)
+        {
+            return mapper.Map<ColorListResponse>(color);
+        }
+
         //         CONVERT TO ENTİY EDİT
 
         public static Category ConvertToEntity(this EditCategoryRequest request, IMapper mapper)
