@@ -10,5 +10,6 @@ namespace CarDealer.Business.Interfaces
     public interface ISeriesService
     {
         IList<SeriesListResponse> GetAllSeries();
+        SeriesListResponse GetSeriesById(int id);
     }
 }

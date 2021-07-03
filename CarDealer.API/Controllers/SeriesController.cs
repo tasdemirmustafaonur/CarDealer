@@ -25,5 +25,19 @@ namespace CarDealer.API.Controllers
             var result = service.GetAllSeries();
             return Ok(result);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var seriesListResponse = service.GetSeriesById(id);
+            if (seriesListResponse != null)
+            {
+                return Ok(seriesListResponse);
+            }
+
+            return NotFound();
+        }
+
+
     }
 }

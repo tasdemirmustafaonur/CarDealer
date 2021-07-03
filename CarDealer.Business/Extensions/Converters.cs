@@ -135,6 +135,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<ColorListResponse>(color);
         }
 
+        public static SeriesListResponse ConvertFromEntity(this Series series, IMapper mapper)
+        {
+            return mapper.Map<SeriesListResponse>(series);
+        }
+
         //         CONVERT TO ENTİY EDİT
 
         public static Category ConvertToEntity(this EditCategoryRequest request, IMapper mapper)

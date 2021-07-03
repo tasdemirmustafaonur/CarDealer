@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using CarDealer.DataAccess.Data;
 using CarDealer.DataAccess.Interfaces;
 using CarDealer.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarDealer.DataAccess.Repositories
 {
@@ -35,7 +37,7 @@ namespace CarDealer.DataAccess.Repositories
 
         public Series GetById(int id)
         {
-            throw new NotImplementedException();
+            return db.Series.AsNoTracking().FirstOrDefault(x => x.Id == id);
         }
 
         public IList<Series> GetWithCriteria(Expression<Func<Series, bool>> criteria)
@@ -47,5 +49,6 @@ namespace CarDealer.DataAccess.Repositories
         {
             throw new NotImplementedException();
         }
+        
     }
 }
