@@ -28,7 +28,8 @@ namespace CarDealer.DataAccess.Repositories
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            db.Gears.Remove(GetById(id));
+            db.SaveChanges();
         }
 
         public IList<Gear> GetAll()

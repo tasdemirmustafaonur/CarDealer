@@ -44,6 +44,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<List<GearListResponse>>(gears);
         }
 
+        public static List<WheelDriveListResponse> ConvertToListResponse(this List<WheelDrive> wheelDrives, IMapper mapper)
+        {
+            return mapper.Map<List<WheelDriveListResponse>>(wheelDrives);
+        }
+
         //       ADD NEW ENTİTY REQUEST
 
         public static Category ConvertToCategory(this AddNewCategoryRequest request, IMapper mapper)

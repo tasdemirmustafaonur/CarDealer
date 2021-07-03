@@ -30,6 +30,11 @@ namespace CarDealer.Business.Services
             return newGear.Id;
         }
 
+        public void DeleteGear(int id)
+        {
+            gearRepository.Delete(id);
+        }
+
         public IList<GearListResponse> GetAllGears()
         {
             var dtoList = gearRepository.GetAll().ToList();

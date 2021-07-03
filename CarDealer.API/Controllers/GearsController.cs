@@ -53,6 +53,8 @@ namespace CarDealer.API.Controllers
             return BadRequest(ModelState);
         }
 
+        [HttpPut("{id}")]
+        [GearExists]
         public IActionResult UpdateGear(int id, EditGearRequest request)
         {
             if (ModelState.IsValid)
@@ -62,6 +64,14 @@ namespace CarDealer.API.Controllers
             }
 
             return BadRequest(ModelState);
+        }
+
+        [HttpDelete("{id}")]
+        [GearExists]
+        public IActionResult Delete(int id)
+        {
+            service.DeleteGear(id);
+            return Ok();
         }
     }
 }

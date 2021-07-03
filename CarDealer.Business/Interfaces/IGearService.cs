@@ -13,5 +13,6 @@ namespace CarDealer.Business.Interfaces
         GearListResponse GetGearById(int id);
         int AddGear(AddNewGearRequest request);
         int UpdateGear(EditGearRequest request);
+        void DeleteGear(int id);
     }
 }
