@@ -48,7 +48,9 @@ namespace CarDealer.DataAccess.Repositories
 
         public Color Update(Color entity)
         {
-            throw new NotImplementedException();
+            db.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return entity;
         }
     }
 }

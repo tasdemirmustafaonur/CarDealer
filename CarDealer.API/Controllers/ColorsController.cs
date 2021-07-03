@@ -54,5 +54,18 @@ namespace CarDealer.API.Controllers
             return BadRequest(ModelState);
         }
 
+        [HttpPut("{id}")]
+        [ColorExists]
+        public IActionResult UpdateColor(int id, EditColorRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int newItemId = service.UpdateColor(request);
+                return Ok();
+            }
+
+            return BadRequest(ModelState);
+        }
+
     }
 }

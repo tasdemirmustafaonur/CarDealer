@@ -42,5 +42,12 @@ namespace CarDealer.Business.Services
             Color color = colorRepository.GetById(id);
             return color.ConvertFromEntity(mapper);
         }
+
+        public int UpdateColor(EditColorRequest request)
+        {
+            var color = request.ConvertToEntity(mapper);
+            int id = colorRepository.Update(color).Id;
+            return id;
+        }
     }
 }

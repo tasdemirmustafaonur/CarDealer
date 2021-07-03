@@ -162,5 +162,10 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<WheelDrive>(request);
         }
 
+        public static Color ConvertToEntity(this EditColorRequest request, IMapper mapper)
+        {
+            return mapper.Map<Color>(request);
+        }
+
     }
 }
