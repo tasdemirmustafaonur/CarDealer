@@ -30,6 +30,11 @@ namespace CarDealer.Business.Services
             return newColor.Id;
         }
 
+        public void DeleteColor(int id)
+        {
+            colorRepository.Delete(id);
+        }
+
         public IList<ColorListResponse> GetAllColors()
         {
             var dtoList = colorRepository.GetAll().ToList();

@@ -67,5 +67,13 @@ namespace CarDealer.API.Controllers
             return BadRequest(ModelState);
         }
 
+        [HttpDelete("{id}")]
+        [ColorExists]
+        public IActionResult Delete(int id)
+        {
+            service.DeleteColor(id);
+            return Ok();
+        }
+
     }
 }

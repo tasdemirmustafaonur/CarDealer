@@ -13,5 +13,6 @@ namespace CarDealer.Business.Interfaces
         ColorListResponse GetColorById(int id);
         int AddColor(AddNewColorRequest request);
         int UpdateColor(EditColorRequest request);
+        void DeleteColor(int id);
     }
 }
