@@ -66,6 +66,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<Fuel>(request);
         }
 
+        public static Gear ConvertToGear(this AddNewGearRequest request, IMapper mapper)
+        {
+            return mapper.Map<Gear>(request);
+        }
+
         //          CONVERT FROM ENTİTY
 
         public static CategoryListResponse ConvertFromEntity(this Category category, IMapper mapper)
@@ -113,6 +118,11 @@ namespace CarDealer.Business.Extensions
         public static Fuel ConvertToEntity(this EditFuelRequest request, IMapper mapper)
         {
             return mapper.Map<Fuel>(request);
+        }
+
+        public static Gear ConvertToEntity(this EditGearRequest request, IMapper mapper)
+        {
+            return mapper.Map<Gear>(request);
         }
 
     }

@@ -21,7 +21,9 @@ namespace CarDealer.DataAccess.Repositories
         }
         public Gear Add(Gear entity)
         {
-            throw new NotImplementedException();
+            db.Gears.Add(entity);
+            db.SaveChanges();
+            return entity;
         }
 
         public void Delete(int id)
@@ -46,7 +48,9 @@ namespace CarDealer.DataAccess.Repositories
 
         public Gear Update(Gear entity)
         {
-            throw new NotImplementedException();
+            db.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return entity;
         }
     }
 }

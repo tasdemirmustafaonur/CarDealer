@@ -22,6 +22,14 @@ namespace CarDealer.Business.Services
             this.gearRepository = gearRepository;
             this.mapper = mapper;
         }
+
+        public int AddGear(AddNewGearRequest request)
+        {
+            var newGear = request.ConvertToGear(mapper);
+            gearRepository.Add(newGear);
+            return newGear.Id;
+        }
+
         public IList<GearListResponse> GetAllGears()
         {
             var dtoList = gearRepository.GetAll().ToList();
@@ -33,6 +41,13 @@ namespace CarDealer.Business.Services
         {
             Gear gear = gearRepository.GetById(id);
             return gear.ConvertFromEntity(mapper);
+        }
+
+        public int UpdateGear(EditGearRequest request)
+        {
+            var gear = request.ConvertToEntity(mapper);
+            int id = gearRepository.Update(gear).Id;
+            return id;
         }
     }
 }

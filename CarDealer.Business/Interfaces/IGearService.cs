@@ -11,5 +11,7 @@ namespace CarDealer.Business.Interfaces
     {
         IList<GearListResponse> GetAllGears();
         GearListResponse GetGearById(int id);
+        int AddGear(AddNewGearRequest request);
+        int UpdateGear(EditGearRequest request);
     }
 }

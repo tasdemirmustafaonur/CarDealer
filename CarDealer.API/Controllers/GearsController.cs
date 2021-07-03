@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarDealer.API.Filters;
+using CarDealer.Business.DataTransferObjects;
 
 namespace CarDealer.API.Controllers
 {
@@ -27,6 +29,7 @@ namespace CarDealer.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [GearExists]
         public IActionResult GetById(int id)
         {
             var gearListResponse = service.GetGearById(id);
@@ -36,6 +39,29 @@ namespace CarDealer.API.Controllers
             }
 
             return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult AddGears(AddNewGearRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int gearId = service.AddGear(request);
+                return CreatedAtAction(nameof(GetById), routeValues: new {id = gearId}, value: null);
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        public IActionResult UpdateGear(int id, EditGearRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int newItemId = service.UpdateGear(request);
+                return Ok();
+            }
+
+            return BadRequest(ModelState);
         }
     }
 }
