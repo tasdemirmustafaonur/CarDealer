@@ -22,6 +22,19 @@ namespace CarDealer.Business.Services
             this.seriesRepository = seriesRepository;
             this.mapper = mapper;
         }
+
+        public int AddSeries(AddNewSeriesRequest request)
+        {
+            var newSeries = request.ConvertToSeries(mapper);
+            seriesRepository.Add(newSeries);
+            return newSeries.Id;
+        }
+
+        public void DeleteSeries(int id)
+        {
+            seriesRepository.Delete(id);
+        }
+
         public IList<SeriesListResponse> GetAllSeries()
         {
             var dtoList = seriesRepository.GetAll().ToList();
@@ -33,6 +46,13 @@ namespace CarDealer.Business.Services
         {
             Series series = seriesRepository.GetById(id);
             return series.ConvertFromEntity(mapper);
+        }
+
+        public int UpdateSeries(EditSeriesRequest request)
+        {
+            var series = request.ConvertToEntity(mapper);
+            int id = seriesRepository.Update(series).Id;
+            return id;
         }
     }
 }

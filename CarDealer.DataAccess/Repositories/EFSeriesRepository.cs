@@ -22,12 +22,15 @@ namespace CarDealer.DataAccess.Repositories
         }
         public Series Add(Series entity)
         {
-            throw new NotImplementedException();
+            db.Series.Add(entity);
+            db.SaveChanges();
+            return entity;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            db.Series.Remove(GetById(id));
+            db.SaveChanges();
         }
 
         public IList<Series> GetAll()
@@ -47,7 +50,9 @@ namespace CarDealer.DataAccess.Repositories
 
         public Series Update(Series entity)
         {
-            throw new NotImplementedException();
+            db.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return entity;
         }
         
     }

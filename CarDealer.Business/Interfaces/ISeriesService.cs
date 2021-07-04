@@ -11,5 +11,8 @@ namespace CarDealer.Business.Interfaces
     {
         IList<SeriesListResponse> GetAllSeries();
         SeriesListResponse GetSeriesById(int id);
+        int AddSeries(AddNewSeriesRequest request);
+        int UpdateSeries(EditSeriesRequest request);
+        void DeleteSeries(int id);
     }
 }

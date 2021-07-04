@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarDealer.API.Filters;
+using CarDealer.Business.DataTransferObjects;
 using CarDealer.Business.Interfaces;
 
 namespace CarDealer.API.Controllers
@@ -27,6 +29,7 @@ namespace CarDealer.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [SeriesExists]
         public IActionResult GetById(int id)
         {
             var seriesListResponse = service.GetSeriesById(id);
@@ -36,6 +39,39 @@ namespace CarDealer.API.Controllers
             }
 
             return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult AddSeries(AddNewSeriesRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int seriesId = service.AddSeries(request);
+                return CreatedAtAction(nameof(GetById), routeValues: new {id = seriesId}, value: null);
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpPut("{id}")]
+        [SeriesExists]
+        public IActionResult UpdateSeries(int id, EditSeriesRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int newItemId = service.UpdateSeries(request);
+                return Ok();
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpDelete("{id}")]
+        [SeriesExists]
+        public IActionResult Delete(int id)
+        {
+            service.DeleteSeries(id);
+            return Ok();
         }
 
 

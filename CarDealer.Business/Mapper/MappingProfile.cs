@@ -44,6 +44,8 @@ namespace CarDealer.Business.Mapper
             CreateMap<Color, EditColorRequest>().ReverseMap();
 
             CreateMap<Series, SeriesListResponse>().ReverseMap();
+            CreateMap<Series, AddNewSeriesRequest>().ReverseMap();
+            CreateMap<Series, EditSeriesRequest>().ReverseMap();
 
         }
     }
