@@ -22,6 +22,19 @@ namespace CarDealer.Business.Services
             this.modelRepository = modelRepository;
             this.mapper = mapper;
         }
+
+        public int AddModel(AddNewModelRequest request)
+        {
+            var newModel = request.ConvertToModel(mapper);
+            modelRepository.Add(newModel);
+            return newModel.Id;
+        }
+
+        public void DeleteModel(int id)
+        {
+            modelRepository.Delete(id);
+        }
+
         public IList<ModelListResponse> GetAllModels()
         {
             var dtoList = modelRepository.GetAll().ToList();
@@ -33,6 +46,13 @@ namespace CarDealer.Business.Services
         {
             Model model = modelRepository.GetById(id);
             return model.ConvertFromEntity(mapper);
+        }
+
+        public int UpdateModel(EditModelRequest request)
+        {
+            var model = request.ConvertToEntity(mapper);
+            int id = modelRepository.Update(model).Id;
+            return id;
         }
     }
 }

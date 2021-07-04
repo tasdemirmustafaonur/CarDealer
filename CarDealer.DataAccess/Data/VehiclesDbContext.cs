@@ -39,8 +39,6 @@ namespace CarDealer.DataAccess.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
-
             //bir filmin bir türü var
             modelBuilder.Entity<Vehicle>()
                 .HasOne(m => m.Model)
@@ -49,6 +47,12 @@ namespace CarDealer.DataAccess.Data
                 .OnDelete(DeleteBehavior.NoAction);  //bir tür silinirse o türe bağlı tüm filmler silinecek Noaction tam tersi onay vermez.
 
             modelBuilder.Entity<Vehicle>()
+                .HasOne(m => m.Series)
+                .WithMany()
+                .HasForeignKey(m => m.SeriesId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Model>()
                 .HasOne(m => m.Series)
                 .WithMany()
                 .HasForeignKey(m => m.SeriesId)

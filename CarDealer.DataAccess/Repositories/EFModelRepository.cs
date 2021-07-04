@@ -35,17 +35,22 @@ namespace CarDealer.DataAccess.Repositories
 
         public Model Add(Model entity)
         {
-            throw new NotImplementedException();
+            db.Models.Add(entity);
+            db.SaveChanges();
+            return entity;
         }
 
         public Model Update(Model entity)
         {
-            throw new NotImplementedException();
+            db.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return entity;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            db.Models.Remove(GetById(id));
+            db.SaveChanges();
         }
     }
 }

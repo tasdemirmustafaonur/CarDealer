@@ -108,6 +108,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<Series>(request);
         }
 
+        public static Model ConvertToModel(this AddNewModelRequest request, IMapper mapper)
+        {
+            return mapper.Map<Model>(request);
+        }
+
         //          CONVERT FROM ENTİTY
 
         public static CategoryListResponse ConvertFromEntity(this Category category, IMapper mapper)
@@ -194,6 +199,11 @@ namespace CarDealer.Business.Extensions
         public static Series ConvertToEntity(this EditSeriesRequest request, IMapper mapper)
         {
             return mapper.Map<Series>(request);
+        }
+
+        public static Model ConvertToEntity(this EditModelRequest request, IMapper mapper)
+        {
+            return mapper.Map<Model>(request);
         }
 
     }

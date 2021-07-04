@@ -12,6 +12,9 @@ namespace CarDealer.Business.Interfaces
     {
         IList<ModelListResponse> GetAllModels();
         ModelListResponse GetModelById(int id);
+        int AddModel(AddNewModelRequest request);
+        int UpdateModel(EditModelRequest request);
+        void DeleteModel(int id);
 
     }
 }
