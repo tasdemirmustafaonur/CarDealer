@@ -59,6 +59,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<List<SeriesListResponse>>(series);
         }
 
+        public static List<ModelListResponse> ConvertToListResponse(this List<Model> models, IMapper mapper)
+        {
+            return mapper.Map<List<ModelListResponse>>(models);
+        }
+
 
 
         //       ADD NEW ENTİTY REQUEST

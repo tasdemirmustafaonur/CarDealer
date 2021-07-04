@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using CarDealer.Business.DataTransferObjects;
+using CarDealer.Business.Extensions;
 using CarDealer.Business.Interfaces;
 using CarDealer.DataAccess.Interfaces;
 using CarDealer.Models;
@@ -12,19 +15,17 @@ namespace CarDealer.Business.Services
     public class ModelService : IModelService
     {
         private IModelRepository modelRepository;
-        public ModelService(IModelRepository modelRepository)
+        private IMapper mapper;
+
+        public ModelService(IModelRepository modelRepository,IMapper mapper)
         {
             this.modelRepository = modelRepository;
+            this.mapper = mapper;
         }
-        public IList<Model> GetAllModels()
+        public IList<ModelListResponse> GetAllModels()
         {
-            var result = modelRepository.GetAll().ToList();
-            //List<CategoryResponseList> result = new List<CategoryResponseList>();
-            //dtoList.ForEach(g => result.Add(new CategoryResponseList
-            //{
-            //    Id = g.Id,
-            //    Name = g.Name
-            //}));
+            var dtoList = modelRepository.GetAll().ToList();
+            var result = dtoList.ConvertToListResponse(mapper);
             return result;
         }
     }

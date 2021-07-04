@@ -47,6 +47,8 @@ namespace CarDealer.Business.Mapper
             CreateMap<Series, AddNewSeriesRequest>().ReverseMap();
             CreateMap<Series, EditSeriesRequest>().ReverseMap();
 
+            CreateMap<Model, ModelListResponse>().ReverseMap();
+
         }
     }
 }
