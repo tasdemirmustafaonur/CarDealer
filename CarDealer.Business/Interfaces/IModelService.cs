@@ -11,6 +11,7 @@ namespace CarDealer.Business.Interfaces
     public interface IModelService
     {
         IList<ModelListResponse> GetAllModels();
+        ModelListResponse GetModelById(int id);
 
     }
 }

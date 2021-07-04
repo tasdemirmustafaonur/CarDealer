@@ -149,6 +149,10 @@ namespace CarDealer.Business.Extensions
         {
             return mapper.Map<SeriesListResponse>(series);
         }
+        public static ModelListResponse ConvertFromEntity(this Model model, IMapper mapper)
+        {
+            return mapper.Map<ModelListResponse>(model);
+        }
 
         //         CONVERT TO ENTİY EDİT
 

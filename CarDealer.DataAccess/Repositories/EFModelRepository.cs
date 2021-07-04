@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CarDealer.DataAccess.Data;
 using CarDealer.DataAccess.Interfaces;
 using CarDealer.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarDealer.DataAccess.Repositories
 {
@@ -24,7 +25,7 @@ namespace CarDealer.DataAccess.Repositories
 
         public Model GetById(int id)
         {
-            throw new NotImplementedException();
+            return db.Models.AsNoTracking().FirstOrDefault(x => x.Id == id);
         }
 
         public IList<Model> GetWithCriteria(Expression<Func<Model, bool>> criteria)

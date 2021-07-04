@@ -28,5 +28,11 @@ namespace CarDealer.Business.Services
             var result = dtoList.ConvertToListResponse(mapper);
             return result;
         }
+
+        public ModelListResponse GetModelById(int id)
+        {
+            Model model = modelRepository.GetById(id);
+            return model.ConvertFromEntity(mapper);
+        }
     }
 }
