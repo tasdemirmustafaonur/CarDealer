@@ -13,6 +13,7 @@ namespace CarDealer.Models
         [Required(ErrorMessage = "Marka girmek zorundasınız.")]
         public string Name { get; set; }
         public virtual IList<CategoryBrand> Categories { get; set; }
+        public bool IsDeleted { get; set; }
 
 
     }

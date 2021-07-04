@@ -32,7 +32,9 @@ namespace CarDealer.Business.Services
 
         public void DeleteSeries(int id)
         {
-            seriesRepository.Delete(id);
+            Series series = seriesRepository.GetById(id);
+            series.IsDeleted = true;
+            seriesRepository.Update(series);
         }
 
         public IList<SeriesListResponse> GetAllSeries()

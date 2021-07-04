@@ -15,7 +15,8 @@ namespace CarDealer.Models
 
         public int BrandId { get; set; }
         public virtual Brand Brand { get; set; }
-        
-        
+        public bool IsDeleted { get; set; }
+
+
     }
 }

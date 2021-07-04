@@ -44,7 +44,8 @@ namespace CarDealer.Models
         public int UserId { get; set; }
         public virtual User User { get; set; }
         public virtual IList<Image> Images { get; set; }
-        
+        public bool IsDeleted { get; set; }
+
 
 
 

@@ -14,5 +14,6 @@ namespace CarDealer.Models
         public string Name { get; set; }
         public int SeriesId { get; set; }
         public virtual Series Series { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

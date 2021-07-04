@@ -14,5 +14,6 @@ namespace CarDealer.Models
         public string Name { get; set; }
 
         public virtual IList<CategoryBrand> Brands { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

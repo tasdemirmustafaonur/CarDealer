@@ -17,6 +17,7 @@ namespace CarDealer.Models
         public int TownId { get; set; }
         public virtual Town Town { get; set; }
         public string FullAddress { get; set; }
+        public bool IsDeleted { get; set; }
 
     }
 }

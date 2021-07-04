@@ -12,6 +12,7 @@ namespace CarDealer.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Renk girmek zorundasınız.")]
         public string Name { get; set; }
+        public bool IsDeleted { get; set; }
 
 
     }
