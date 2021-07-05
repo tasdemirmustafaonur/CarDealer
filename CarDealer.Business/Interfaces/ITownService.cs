@@ -10,5 +10,6 @@ namespace CarDealer.Business.Interfaces
     public interface ITownService
     {
         IList<TownListResponse> GetAllTowns();
+        TownListResponse GetTownById(int id);
     }
 }

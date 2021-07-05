@@ -25,5 +25,17 @@ namespace CarDealer.API.Controllers
             var result = service.GetAllTowns();
             return Ok(result);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetByID(int id)
+        {
+            var townListResponse = service.GetTownById(id);
+            if (townListResponse != null)
+            {
+                return Ok(townListResponse);
+            }
+
+            return NotFound();
+        }
     }
 }
