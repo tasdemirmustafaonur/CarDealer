@@ -13,5 +13,6 @@ namespace CarDealer.Business.Interfaces
         TownListResponse GetTownById(int id);
         int AddTown(AddNewTownRequest request);
         int UpdateTown(EditTownRequest request);
+        void DeleteTown(int id);
     }
 }
