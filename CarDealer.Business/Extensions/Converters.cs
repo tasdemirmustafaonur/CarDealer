@@ -78,6 +78,10 @@ namespace CarDealer.Business.Extensions
         {
             return mapper.Map<List<ImageListResponse>>(images);
         }
+        public static List<RoleListResponse> ConvertToListResponse(this List<Role> roles, IMapper mapper)
+        {
+            return mapper.Map<List<RoleListResponse>>(roles);
+        }
 
 
 
@@ -202,6 +206,10 @@ namespace CarDealer.Business.Extensions
         public static ImageListResponse ConvertFromEntity(this Image image, IMapper mapper)
         {
             return mapper.Map<ImageListResponse>(image);
+        }
+        public static RoleListResponse ConvertFromEntity(this Role role, IMapper mapper)
+        {
+            return mapper.Map<RoleListResponse>(role);
         }
 
         //         CONVERT TO ENTİY EDİT

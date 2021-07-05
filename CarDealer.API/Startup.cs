@@ -75,6 +75,9 @@ namespace CarDealer.API
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IImageRepository, EFImageRepository>();
 
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IRoleRepository, EFRoleRepository>();
+
             services.AddScoped<IVehicleService, VehicleService>();
             services.AddScoped<IVehicleRepository, EFVehicleRepository>();
 
