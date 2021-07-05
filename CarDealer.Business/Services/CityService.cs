@@ -30,6 +30,13 @@ namespace CarDealer.Business.Services
             return newCity.Id;
         }
 
+        public void DeleteCity(int id)
+        {
+            City city = cityRepository.GetById(id);
+            city.IsDeleted = true;
+            cityRepository.Update(city);
+        }
+
         public IList<CityListResponse> GetAllCities()
         {
             var dtoList = cityRepository.GetAll().ToList();
