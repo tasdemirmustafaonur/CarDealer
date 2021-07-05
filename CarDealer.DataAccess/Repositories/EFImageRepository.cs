@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CarDealer.DataAccess.Data;
 using CarDealer.DataAccess.Interfaces;
 using CarDealer.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarDealer.DataAccess.Repositories
 {
@@ -30,12 +31,12 @@ namespace CarDealer.DataAccess.Repositories
 
         public IList<Image> GetAll()
         {
-            throw new NotImplementedException();
+            return db.Images.Where(x => x.IsDeleted == false).ToList();
         }
 
         public Image GetById(int id)
         {
-            throw new NotImplementedException();
+            return db.Images.AsNoTracking().Where(x => x.IsDeleted == false).FirstOrDefault(x => x.Id == id);
         }
 
         public IList<Image> GetWithCriteria(Expression<Func<Image, bool>> criteria)

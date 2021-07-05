@@ -10,5 +10,6 @@ namespace CarDealer.Business.Interfaces
     public interface IImageService
     {
         IList<ImageListResponse> GetAllImages();
+        ImageListResponse GetImageById(int id);
     }
 }

@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using CarDealer.Business.DataTransferObjects;
+using CarDealer.Business.Extensions;
 using CarDealer.Business.Interfaces;
 using CarDealer.DataAccess.Interfaces;
+using CarDealer.Models;
 
 namespace CarDealer.Business.Services
 {
@@ -22,7 +24,15 @@ namespace CarDealer.Business.Services
         }
         public IList<ImageListResponse> GetAllImages()
         {
-            throw new NotImplementedException();
+            var dtoList = imageRepository.GetAll().ToList();
+            var result = dtoList.ConvertToListResponse(mapper);
+            return result;
+        }
+
+        public ImageListResponse GetImageById(int id)
+        {
+            Image image = imageRepository.GetById(id);
+            return image.ConvertFromEntity(mapper);
         }
     }
 }

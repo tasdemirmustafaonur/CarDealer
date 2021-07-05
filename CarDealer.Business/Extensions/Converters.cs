@@ -194,6 +194,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<TownListResponse>(town);
         }
 
+        public static ImageListResponse ConvertFromEntity(this Image image, IMapper mapper)
+        {
+            return mapper.Map<ImageListResponse>(image);
+        }
+
         //         CONVERT TO ENTİY EDİT
 
         public static Category ConvertToEntity(this EditCategoryRequest request, IMapper mapper)
