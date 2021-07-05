@@ -49,5 +49,12 @@ namespace CarDealer.Business.Services
             Image image = imageRepository.GetById(id);
             return image.ConvertFromEntity(mapper);
         }
+
+        public void DeleteImage(int id)
+        {
+            Image image = imageRepository.GetById(id);
+            image.IsDeleted = true;
+            imageRepository.Update(image);
+        }
     }
 }

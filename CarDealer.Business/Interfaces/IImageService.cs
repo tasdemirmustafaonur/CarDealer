@@ -13,5 +13,6 @@ namespace CarDealer.Business.Interfaces
         ImageListResponse GetImageById(int id);
         int AddImage(AddNewImageRequest request);
         int UpdateImage(EditImageRequest request);
+        void DeleteImage(int id);
     }
 }
