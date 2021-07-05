@@ -45,6 +45,12 @@ namespace CarDealer.API
             services.AddScoped<ICategoryBrandService, CategoryBrandService>();
             services.AddScoped<ICategoryBrandRepository, EFCategoryBrandRepository>();
 
+            services.AddScoped<ISeriesService, SeriesService>();
+            services.AddScoped<ISeriesRepository, EFSeriesRepository>();
+
+            services.AddScoped<IModelService, ModelService>();
+            services.AddScoped<IModelRepository, EFModelRepository>();
+
             services.AddScoped<IBodyTypeService, BodyTypeService>();
             services.AddScoped<IBodyTypeRepository, EFBodyTypeRepository>();
 
@@ -60,14 +66,13 @@ namespace CarDealer.API
             services.AddScoped<IColorService, ColorService>();
             services.AddScoped<IColorRepository, EFColorRepository>();
 
-            services.AddScoped<ISeriesService, SeriesService>();
-            services.AddScoped<ISeriesRepository, EFSeriesRepository>();
+            services.AddScoped<ICityService, CityService>();
+            services.AddScoped<ICityRepository, EFCityRepository>();
 
             services.AddScoped<IVehicleService, VehicleService>();
             services.AddScoped<IVehicleRepository, EFVehicleRepository>();
 
-            services.AddScoped<IModelService, ModelService>();
-            services.AddScoped<IModelRepository, EFModelRepository>();
+            
             var connectionString = Configuration.GetConnectionString("db");
             services.AddDbContext<VehiclesDbContext>(option => option.UseSqlServer(connectionString));
             services.AddSwaggerGen(c =>
