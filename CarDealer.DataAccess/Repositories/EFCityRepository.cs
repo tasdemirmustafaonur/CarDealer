@@ -48,7 +48,9 @@ namespace CarDealer.DataAccess.Repositories
 
         public City Update(City entity)
         {
-            throw new NotImplementedException();
+            db.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return entity;
         }
     }
 }

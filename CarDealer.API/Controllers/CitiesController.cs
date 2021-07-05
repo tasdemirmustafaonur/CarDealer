@@ -53,10 +53,19 @@ namespace CarDealer.API.Controllers
             return BadRequest(ModelState);
         }
 
-
+        [HttpPut("{id}")]
+        [CityExists]
         public IActionResult UpdateCity(int id, EditCityRequest request)
         {
+            if (ModelState.IsValid)
+            {
+                int newItemId = service.UpdateCity(request);
+                return Ok();
+            }
 
+            return BadRequest(ModelState);
         }
+
+
     }
 }

@@ -220,6 +220,10 @@ namespace CarDealer.Business.Extensions
         {
             return mapper.Map<Model>(request);
         }
+        public static City ConvertToEntity(this EditCityRequest request, IMapper mapper)
+        {
+            return mapper.Map<City>(request);
+        }
 
     }
 }
