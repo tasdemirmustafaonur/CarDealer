@@ -34,12 +34,12 @@ namespace CarDealer.DataAccess.Repositories
 
         public IList<Color> GetAll()
         {
-            return db.Colors.ToList();
+            return db.Colors.Where(x => x.IsDeleted == false).ToList();
         }
 
         public Color GetById(int id)
         {
-            return db.Colors.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            return db.Colors.AsNoTracking().Where(x => x.IsDeleted == false).FirstOrDefault(x => x.Id == id);
         }
 
         public IList<Color> GetWithCriteria(Expression<Func<Color, bool>> criteria)
