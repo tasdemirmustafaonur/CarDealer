@@ -35,12 +35,12 @@ namespace CarDealer.DataAccess.Repositories
 
         public IList<WheelDrive> GetAll()
         {
-            return db.WheelDrives.ToList();
+            return db.WheelDrives.Where(x => x.IsDeleted == false).ToList();
         }
 
         public WheelDrive GetById(int id)
         {
-            return db.WheelDrives.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            return db.WheelDrives.AsNoTracking().Where(x => x.IsDeleted == false).FirstOrDefault(x => x.Id == id);
         }
 
         public IList<WheelDrive> GetWithCriteria(Expression<Func<WheelDrive, bool>> criteria)

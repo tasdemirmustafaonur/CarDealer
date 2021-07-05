@@ -32,7 +32,9 @@ namespace CarDealer.Business.Services
 
         public void DeleteWheelDrive(int id)
         {
-            wheelDriveRepository.Delete(id);
+            WheelDrive wheelDrive = wheelDriveRepository.GetById(id);
+            wheelDrive.IsDeleted = true;
+            wheelDriveRepository.Update(wheelDrive);
         }
 
         public IList<WheelDriveListResponse> GetAllWheelDrives()
