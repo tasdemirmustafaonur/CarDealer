@@ -83,6 +83,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<List<RoleListResponse>>(roles);
         }
 
+        public static List<UserListResponse> ConvertToListResponse(this List<User> users, IMapper mapper)
+        {
+            return mapper.Map<List<UserListResponse>>(users);
+        }
+
 
 
         //       ADD NEW ENTİTY REQUEST

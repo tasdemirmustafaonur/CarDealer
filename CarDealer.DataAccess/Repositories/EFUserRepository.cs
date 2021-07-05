@@ -31,7 +31,7 @@ namespace CarDealer.DataAccess.Repositories
 
         public IList<User> GetAll()
         {
-            throw new NotImplementedException();
+            return db.Users.Where(x => x.IsDeleted == false).ToList();
         }
 
         public User GetById(int id)
