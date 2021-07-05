@@ -11,5 +11,6 @@ namespace CarDealer.Business.Interfaces
     {
         IList<CityListResponse> GetAllCities();
         CityListResponse GetCityById(int id);
+        int AddCity(AddNewCityRequest request);
     }
 }

@@ -21,7 +21,9 @@ namespace CarDealer.DataAccess.Repositories
         }
         public City Add(City entity)
         {
-            throw new NotImplementedException();
+            db.Cities.Add(entity);
+            db.SaveChanges();
+            return entity;
         }
 
         public void Delete(int id)

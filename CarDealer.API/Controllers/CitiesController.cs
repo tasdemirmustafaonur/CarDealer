@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarDealer.API.Filters;
+using CarDealer.Business.DataTransferObjects;
 
 namespace CarDealer.API.Controllers
 {
@@ -27,6 +29,7 @@ namespace CarDealer.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [CityExists]
         public IActionResult GetById(int id)
         {
             var cityListResponse = service.GetCityById(id);
@@ -36,6 +39,24 @@ namespace CarDealer.API.Controllers
             }
 
             return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult AddCities(AddNewCityRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int cityId = service.AddCity(request);
+                return CreatedAtAction(nameof(GetById), routeValues: new {id = cityId}, value: null);
+            }
+
+            return BadRequest(ModelState);
+        }
+
+
+        public IActionResult UpdateCity(int id, EditCityRequest request)
+        {
+
         }
     }
 }
