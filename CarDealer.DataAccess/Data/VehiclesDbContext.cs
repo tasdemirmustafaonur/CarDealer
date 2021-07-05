@@ -25,6 +25,7 @@ namespace CarDealer.DataAccess.Data
         public DbSet<City> Cities { get; set; }
         public DbSet<Town> Towns { get; set; }
         public DbSet<CategoryBrand> CategoryBrands { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
 
         public VehiclesDbContext()
