@@ -240,5 +240,10 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<City>(request);
         }
 
+        public static Town ConvertToEntity(this EditTownRequest request, IMapper mapper)
+        {
+            return mapper.Map<Town>(request);
+        }
+
     }
 }

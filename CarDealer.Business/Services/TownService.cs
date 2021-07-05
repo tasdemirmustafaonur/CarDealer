@@ -42,5 +42,12 @@ namespace CarDealer.Business.Services
             Town town = townRepository.GetById(id);
             return town.ConvertFromEntity(mapper);
         }
+
+        public int UpdateTown(EditTownRequest request)
+        {
+            var town = request.ConvertToEntity(mapper);
+            int id = townRepository.Update(town).Id;
+            return id;
+        }
     }
 }
