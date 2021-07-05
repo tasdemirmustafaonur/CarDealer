@@ -21,12 +21,12 @@ namespace CarDealer.DataAccess.Repositories
         }
         public IList<BodyType> GetAll()
         {
-            return db.BodyTypes.ToList();
+            return db.BodyTypes.Where(x => x.IsDeleted == false).ToList();
         }
 
         public BodyType GetById(int id)
         {
-            return db.BodyTypes.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            return db.BodyTypes.AsNoTracking().Where(x => x.IsDeleted == false).FirstOrDefault(x => x.Id == id);
         }
 
         public IList<BodyType> GetWithCriteria(Expression<Func<BodyType, bool>> criteria)
