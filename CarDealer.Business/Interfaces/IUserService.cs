@@ -11,5 +11,6 @@ namespace CarDealer.Business.Interfaces
     {
         IList<UserListResponse> GetAllUsers();
         UserListResponse GetUserById(int id);
+        int AddUser(AddNewUserRequest request);
     }
 }

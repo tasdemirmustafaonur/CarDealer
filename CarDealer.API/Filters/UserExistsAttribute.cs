@@ -40,7 +40,7 @@ namespace CarDealer.API.Filters
                 var category = userService.GetUserById(id);
                 if (category == null)
                 {
-                    context.Result = new NotFoundObjectResult(new { Message = $"{id} nolu tür bulunamadı." });
+                    context.Result = new NotFoundObjectResult(new { Message = $"{id} nolu kullanıcı bulunamadı." });
                     return;
                 }
 

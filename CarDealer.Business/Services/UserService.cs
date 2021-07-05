@@ -34,5 +34,12 @@ namespace CarDealer.Business.Services
             User user = userRepository.GetById(id);
             return user.ConvertFromEntity(mapper);
         }
+
+        public int AddUser(AddNewUserRequest request)
+        {
+            var newUser = request.ConvertToUser(mapper);
+            userRepository.Add(newUser);
+            return newUser.Id;
+        }
     }
 }

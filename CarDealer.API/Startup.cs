@@ -78,6 +78,9 @@ namespace CarDealer.API
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<IRoleRepository, EFRoleRepository>();
 
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRepository, EFUserRepository>();
+
             services.AddScoped<IVehicleService, VehicleService>();
             services.AddScoped<IVehicleRepository, EFVehicleRepository>();
 

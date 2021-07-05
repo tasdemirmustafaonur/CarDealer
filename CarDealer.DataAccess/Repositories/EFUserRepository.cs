@@ -22,7 +22,9 @@ namespace CarDealer.DataAccess.Repositories
         }
         public User Add(User entity)
         {
-            throw new NotImplementedException();
+            db.Users.Add(entity);
+            db.SaveChanges();
+            return entity;
         }
 
         public void Delete(int id)

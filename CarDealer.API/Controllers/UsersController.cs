@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarDealer.API.Filters;
+using CarDealer.Business.DataTransferObjects;
 using CarDealer.Business.Interfaces;
 
 namespace CarDealer.API.Controllers
@@ -38,6 +39,18 @@ namespace CarDealer.API.Controllers
             }
 
             return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult AddUsers(AddNewUserRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int userId = service.AddUser(request);
+                return CreatedAtAction(nameof(GetById), routeValues: new {id = userId}, value: null);
+            }
+
+            return BadRequest(ModelState);
         }
     }
 }
