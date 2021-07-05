@@ -21,7 +21,7 @@ namespace CarDealer.DataAccess.Repositories
         }
         public IList<Vehicle> GetAll()
         {
-            return db.Vehicles.Where(x => x.IsDeleted==false).ToList();
+            return db.Vehicles.Where(x => x.IsDeleted==false).Include(x =>x.Images).Include(x=> x.User).ThenInclude(y=> y.City).ToList();
         }
 
         public Vehicle GetById(int id)
@@ -36,7 +36,9 @@ namespace CarDealer.DataAccess.Repositories
 
         public Vehicle Add(Vehicle entity)
         {
-            throw new NotImplementedException();
+            db.Vehicles.Add(entity);
+            db.SaveChanges();
+            return entity;
         }
 
         public Vehicle Update(Vehicle entity)

@@ -11,6 +11,6 @@ namespace CarDealer.Business.DataTransferObjects
     {
         public int VehicleId { get; set; }
         [Required(ErrorMessage = "Resim belirtmediniz")]
-        public string Name { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

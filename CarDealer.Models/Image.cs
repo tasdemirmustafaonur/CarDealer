@@ -14,7 +14,6 @@ namespace CarDealer.Models
         public string ImageUrl { get; set; }
 
         public int VehicleId { get; set; }
-        public virtual Vehicle Vehicle { get; set; }
         public bool IsDeleted { get; set; }
 
     }

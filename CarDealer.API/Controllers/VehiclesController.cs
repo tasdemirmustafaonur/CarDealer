@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarDealer.Business.DataTransferObjects;
 
 namespace CarDealer.API.Controllers
 {
@@ -37,10 +38,16 @@ namespace CarDealer.API.Controllers
             return NotFound();
         }
 
-        [HttpPut]
+        [HttpPost]
         public IActionResult AddVehicle(AddNewVehicleRequest request)
         {
+            if (ModelState.IsValid)
+            {
+                int vehicleId = service.AddVehicle(request);
+                return CreatedAtAction(nameof(GetById), routeValues: new {id = vehicleId}, value: null);
+            }
 
+            return BadRequest(ModelState);
         }
 
     }

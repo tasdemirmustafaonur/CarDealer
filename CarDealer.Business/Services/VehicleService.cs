@@ -23,6 +23,13 @@ namespace CarDealer.Business.Services
             this.mapper = mapper;
         }
 
+        public int AddVehicle(AddNewVehicleRequest request)
+        {
+            var newVehicle = request.ConvertToVehicle(mapper);
+            vehicleRepository.Add(newVehicle);
+            return newVehicle.Id;
+        }
+
         public IList<VehicleListResponse> GetAllVehicles()
         {
             var dtoList = vehicleRepository.GetAll().ToList();

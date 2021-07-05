@@ -12,6 +12,6 @@ namespace CarDealer.Business.DataTransferObjects
         public int Id { get; set; }
         public int VehicleId { get; set; }
         [Required(ErrorMessage = "Resim boş olamaz.")]
-        public string Name { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
