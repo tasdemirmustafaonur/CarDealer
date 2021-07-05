@@ -32,7 +32,9 @@ namespace CarDealer.Business.Services
 
         public void DeleteGear(int id)
         {
-            gearRepository.Delete(id);
+            Gear gear = gearRepository.GetById(id);
+            gear.IsDeleted = true;
+            gearRepository.Update(gear);
         }
 
         public IList<GearListResponse> GetAllGears()
