@@ -52,5 +52,26 @@ namespace CarDealer.API.Controllers
 
             return BadRequest(ModelState);
         }
+
+        [HttpPut("{id}")]
+        [UserExists]
+        public IActionResult UpdateUser(int id, EditUserRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int newItemId = service.UpdateUser(request);
+                return Ok();
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpDelete("{id}")]
+        [UserExists]
+        public IActionResult Delete(int id)
+        {
+            service.DeleteUser(id);
+            return Ok();
+        }
     }
 }

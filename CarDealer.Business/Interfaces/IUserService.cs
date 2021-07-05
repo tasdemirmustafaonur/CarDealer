@@ -12,5 +12,7 @@ namespace CarDealer.Business.Interfaces
         IList<UserListResponse> GetAllUsers();
         UserListResponse GetUserById(int id);
         int AddUser(AddNewUserRequest request);
+        int UpdateUser(EditUserRequest request);
+        void DeleteUser(int id);
     }
 }

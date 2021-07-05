@@ -41,5 +41,19 @@ namespace CarDealer.Business.Services
             userRepository.Add(newUser);
             return newUser.Id;
         }
+
+        public int UpdateUser(EditUserRequest request)
+        {
+            var user = request.ConvertToEntity(mapper);
+            int id = userRepository.Update(user).Id;
+            return id;
+        }
+
+        public void DeleteUser(int id)
+        {
+            User user = userRepository.GetById(id);
+            user.IsDeleted = true;
+            userRepository.Update(user);
+        }
     }
 }

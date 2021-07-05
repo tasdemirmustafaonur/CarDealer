@@ -49,7 +49,9 @@ namespace CarDealer.DataAccess.Repositories
 
         public User Update(User entity)
         {
-            throw new NotImplementedException();
+            db.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return entity;
         }
     }
 }
