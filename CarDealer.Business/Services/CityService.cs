@@ -8,6 +8,7 @@ using CarDealer.Business.DataTransferObjects;
 using CarDealer.Business.Extensions;
 using CarDealer.Business.Interfaces;
 using CarDealer.DataAccess.Interfaces;
+using CarDealer.Models;
 
 namespace CarDealer.Business.Services
 {
@@ -26,6 +27,12 @@ namespace CarDealer.Business.Services
             var dtoList = cityRepository.GetAll().ToList();
             var result = dtoList.ConvertToListResponse(mapper);
             return result;
+        }
+
+        public CityListResponse GetCityById(int id)
+        {
+            City city = cityRepository.GetById(id);
+            return city.ConvertFromEntity(mapper);
         }
     }
 }
