@@ -34,12 +34,12 @@ namespace CarDealer.DataAccess.Repositories
 
         public IList<Category> GetAll()
         {
-            return db.Categories.ToList();
+            return db.Categories.Where(x => x.IsDeleted == false).ToList();
         }
 
         public Category GetById(int id)
         {
-            return db.Categories.AsNoTracking().FirstOrDefault(x=>x.Id == id);
+            return db.Categories.AsNoTracking().Where(x => x.IsDeleted == false).FirstOrDefault(x=>x.Id == id);
         }
 
         public IList<Category> GetWithCriteria(Expression<Func<Category, bool>> criteria)

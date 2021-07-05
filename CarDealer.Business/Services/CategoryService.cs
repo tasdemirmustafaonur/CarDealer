@@ -32,7 +32,9 @@ namespace CarDealer.Business.Services
 
         public void DeleteCategory(int id)
         {
-            categoryRepository.Delete(id);
+            Category category = categoryRepository.GetById(id);
+            category.IsDeleted = true;
+            categoryRepository.Update(category);
         }
 
         public IList<CategoryListResponse> GetAllCategories()
