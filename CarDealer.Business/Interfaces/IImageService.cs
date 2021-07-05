@@ -11,5 +11,7 @@ namespace CarDealer.Business.Interfaces
     {
         IList<ImageListResponse> GetAllImages();
         ImageListResponse GetImageById(int id);
+        int AddImage(AddNewImageRequest request);
+        int UpdateImage(EditImageRequest request);
     }
 }

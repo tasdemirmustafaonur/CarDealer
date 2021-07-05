@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarDealer.API.Filters;
+using CarDealer.Business.DataTransferObjects;
 using CarDealer.Business.Interfaces;
 
 namespace CarDealer.API.Controllers
@@ -38,6 +39,31 @@ namespace CarDealer.API.Controllers
             }
 
             return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult AddImages(AddNewImageRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int imageId = service.AddImage(request);
+                return CreatedAtAction(nameof(GetById), routeValues: new {id = imageId}, value: null);
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpPut("{id}")]
+        [ImageExists]
+        public IActionResult UpdateImage(int id, EditImageRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int newItemId = service.UpdateImage(request);
+                return Ok();
+            }
+
+            return BadRequest(ModelState);
         }
 
     }

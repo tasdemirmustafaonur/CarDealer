@@ -138,6 +138,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<Town>(request);
         }
 
+        public static Image ConvertToImage(this AddNewImageRequest request, IMapper mapper)
+        {
+            return mapper.Map<Image>(request);
+        }
+
         //          CONVERT FROM ENTİTY
 
         public static CategoryListResponse ConvertFromEntity(this Category category, IMapper mapper)
@@ -253,6 +258,10 @@ namespace CarDealer.Business.Extensions
         public static Town ConvertToEntity(this EditTownRequest request, IMapper mapper)
         {
             return mapper.Map<Town>(request);
+        }
+        public static Image ConvertToEntity(this EditImageRequest request, IMapper mapper)
+        {
+            return mapper.Map<Image>(request);
         }
 
     }

@@ -22,6 +22,21 @@ namespace CarDealer.Business.Services
             this.imageRepository = imageRepository;
             this.mapper = mapper;
         }
+
+        public int AddImage(AddNewImageRequest request)
+        {
+            var newImage = request.ConvertToImage(mapper);
+            imageRepository.Add(newImage);
+            return newImage.Id;
+        }
+
+        public int UpdateImage(EditImageRequest request)
+        {
+            var image = request.ConvertToEntity(mapper);
+            int id = imageRepository.Update(image).Id;
+            return id;
+        }
+
         public IList<ImageListResponse> GetAllImages()
         {
             var dtoList = imageRepository.GetAll().ToList();
