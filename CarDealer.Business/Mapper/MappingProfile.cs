@@ -71,6 +71,8 @@ namespace CarDealer.Business.Mapper
             CreateMap<User, AddNewUserRequest>().ReverseMap();
             CreateMap<User, EditUserRequest>().ReverseMap();
 
+            CreateMap<Vehicle, VehicleListResponse>().ReverseMap();
+
 
         }
     }

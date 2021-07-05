@@ -21,12 +21,12 @@ namespace CarDealer.DataAccess.Repositories
         }
         public IList<Vehicle> GetAll()
         {
-            return db.Vehicles.ToList();
+            return db.Vehicles.Where(x => x.IsDeleted==false).ToList();
         }
 
         public Vehicle GetById(int id)
         {
-            throw new NotImplementedException();
+            return db.Vehicles.AsNoTracking().Where(x => x.IsDeleted == false).FirstOrDefault(x => x.Id == id);
         }
 
         public IList<Vehicle> GetWithCriteria(Expression<Func<Vehicle, bool>> criteria)

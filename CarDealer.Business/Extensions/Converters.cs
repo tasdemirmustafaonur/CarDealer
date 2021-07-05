@@ -88,6 +88,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<List<UserListResponse>>(users);
         }
 
+        public static List<VehicleListResponse> ConvertToListResponse(this List<Vehicle> vehicles, IMapper mapper)
+        {
+            return mapper.Map<List<VehicleListResponse>>(vehicles);
+        }
+
 
 
         //       ADD NEW ENTİTY REQUEST
@@ -230,6 +235,11 @@ namespace CarDealer.Business.Extensions
         public static UserListResponse ConvertFromEntity(this User user, IMapper mapper)
         {
             return mapper.Map<UserListResponse>(user);
+        }
+
+        public static VehicleListResponse ConvertFromEntity(this Vehicle vehicle, IMapper mapper)
+        {
+            return mapper.Map<VehicleListResponse>(vehicle);
         }
 
         //         CONVERT TO ENTİY EDİT

@@ -10,6 +10,7 @@ namespace CarDealer.Business.Interfaces
 {
     public interface IVehicleService
     {
-        IList<Vehicle> GetAllVehicles();
+        IList<VehicleListResponse> GetAllVehicles();
+        VehicleListResponse GetVehicleById(int id);
     }
 }
