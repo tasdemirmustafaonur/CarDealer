@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarDealer.API.Filters;
 using CarDealer.Business.Interfaces;
 
 namespace CarDealer.API.Controllers
@@ -24,6 +25,19 @@ namespace CarDealer.API.Controllers
         {
             var result = service.GetAllUsers();
             return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        [UserExists]
+        public IActionResult GetById(int id)
+        {
+            var userListResponse = service.GetUserById(id);
+            if (userListResponse != null)
+            {
+                return Ok(userListResponse);
+            }
+
+            return NotFound();
         }
     }
 }

@@ -222,6 +222,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<RoleListResponse>(role);
         }
 
+        public static UserListResponse ConvertFromEntity(this User user, IMapper mapper)
+        {
+            return mapper.Map<UserListResponse>(user);
+        }
+
         //         CONVERT TO ENTİY EDİT
 
         public static Category ConvertToEntity(this EditCategoryRequest request, IMapper mapper)

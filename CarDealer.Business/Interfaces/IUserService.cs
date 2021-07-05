@@ -10,5 +10,6 @@ namespace CarDealer.Business.Interfaces
     public interface IUserService
     {
         IList<UserListResponse> GetAllUsers();
+        UserListResponse GetUserById(int id);
     }
 }
