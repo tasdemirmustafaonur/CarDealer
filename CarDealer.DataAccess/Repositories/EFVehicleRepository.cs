@@ -43,7 +43,9 @@ namespace CarDealer.DataAccess.Repositories
 
         public Vehicle Update(Vehicle entity)
         {
-            throw new NotImplementedException();
+            db.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return entity;
         }
 
         public void Delete(int id)

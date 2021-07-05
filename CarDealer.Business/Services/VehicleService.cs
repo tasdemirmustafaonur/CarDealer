@@ -42,5 +42,12 @@ namespace CarDealer.Business.Services
             Vehicle vehicle = vehicleRepository.GetById(id);
             return vehicle.ConvertFromEntity(mapper);
         }
+
+        public int UpdateVehicle(EditVehicleRequest request)
+        {
+            var vehicle = request.ConvertToEntity(mapper);
+            int id = vehicleRepository.Update(vehicle).Id;
+            return id;
+        }
     }
 }

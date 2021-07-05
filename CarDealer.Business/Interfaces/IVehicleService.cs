@@ -13,5 +13,6 @@ namespace CarDealer.Business.Interfaces
         IList<VehicleListResponse> GetAllVehicles();
         VehicleListResponse GetVehicleById(int id);
         int AddVehicle(AddNewVehicleRequest request);
+        int UpdateVehicle(EditVehicleRequest request);
     }
 }
