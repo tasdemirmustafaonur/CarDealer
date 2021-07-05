@@ -51,7 +51,9 @@ namespace CarDealer.Business.Services
 
         public void DeleteFuel(int id)
         {
-            fuelRepository.Delete(id);
+            Fuel fuel = fuelRepository.GetById(id);
+            fuel.IsDeleted = true;
+            fuelRepository.Update(fuel);
         }
     }
 }

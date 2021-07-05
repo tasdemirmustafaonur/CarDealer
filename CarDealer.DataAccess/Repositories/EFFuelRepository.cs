@@ -34,12 +34,12 @@ namespace CarDealer.DataAccess.Repositories
 
         public IList<Fuel> GetAll()
         {
-            return db.Fuels.ToList();
+            return db.Fuels.Where(x => x.IsDeleted == false).ToList();
         }
 
         public Fuel GetById(int id)
         {
-            return db.Fuels.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            return db.Fuels.AsNoTracking().Where(x => x.IsDeleted == false).FirstOrDefault(x => x.Id == id);
         }
 
         public IList<Fuel> GetWithCriteria(Expression<Func<Fuel, bool>> criteria)
