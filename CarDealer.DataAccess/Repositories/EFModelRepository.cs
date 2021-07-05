@@ -20,12 +20,12 @@ namespace CarDealer.DataAccess.Repositories
         }
         public IList<Model> GetAll()
         {
-            return db.Models.ToList();
+            return db.Models.Where(x => x.IsDeleted == false).ToList();
         }
 
         public Model GetById(int id)
         {
-            return db.Models.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            return db.Models.AsNoTracking().Where(x => x.IsDeleted == false).FirstOrDefault(x => x.Id == id);
         }
 
         public IList<Model> GetWithCriteria(Expression<Func<Model, bool>> criteria)

@@ -32,7 +32,9 @@ namespace CarDealer.Business.Services
 
         public void DeleteModel(int id)
         {
-            modelRepository.Delete(id);
+            Model model = modelRepository.GetById(id);
+            model.IsDeleted = true;
+            modelRepository.Update(model);
         }
 
         public IList<ModelListResponse> GetAllModels()
