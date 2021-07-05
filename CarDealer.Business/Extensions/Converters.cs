@@ -128,6 +128,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<City>(request);
         }
 
+        public static Town ConvertToTown(this AddNewTownRequest request, IMapper mapper)
+        {
+            return mapper.Map<Town>(request);
+        }
+
         //          CONVERT FROM ENTİTY
 
         public static CategoryListResponse ConvertFromEntity(this Category category, IMapper mapper)

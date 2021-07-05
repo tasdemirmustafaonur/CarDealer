@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace CarDealer.Business.DataTransferObjects
 {
-    public class AddNewModelRequest
+    public class AddNewTownRequest
     {
-        public int SeriesId { get; set; }
-        [Required(ErrorMessage = "Model adını belirtmediniz")]
+        public int CityId { get; set; }
+        [Required(ErrorMessage = "İlçe adını belirtmediniz")]
         public string Name { get; set; }
     }
 }

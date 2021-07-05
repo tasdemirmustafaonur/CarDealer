@@ -22,6 +22,14 @@ namespace CarDealer.Business.Services
             this.townRepository = townRepository;
             this.mapper = mapper;
         }
+
+        public int AddTown(AddNewTownRequest request)
+        {
+            var newTown = request.ConvertToTown(mapper);
+            townRepository.Add(newTown);
+            return newTown.Id;
+        }
+
         public IList<TownListResponse> GetAllTowns()
         {
             var dtoList = townRepository.GetAll().ToList();

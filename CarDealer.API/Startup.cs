@@ -69,6 +69,9 @@ namespace CarDealer.API
             services.AddScoped<ICityService, CityService>();
             services.AddScoped<ICityRepository, EFCityRepository>();
 
+            services.AddScoped<ITownService, TownService>();
+            services.AddScoped<ITownRepository, EFTownRepository>();
+
             services.AddScoped<IVehicleService, VehicleService>();
             services.AddScoped<IVehicleRepository, EFVehicleRepository>();
 
