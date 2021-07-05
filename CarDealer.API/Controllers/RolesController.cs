@@ -65,5 +65,13 @@ namespace CarDealer.API.Controllers
 
             return BadRequest(ModelState);
         }
+
+        [HttpDelete("{id}")]
+        [RoleExists]
+        public IActionResult Delete(int id)
+        {
+            service.DeleteRole(id);
+            return Ok();
+        }
     }
 }

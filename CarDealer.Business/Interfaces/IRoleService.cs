@@ -13,5 +13,6 @@ namespace CarDealer.Business.Interfaces
         RoleListResponse GetRoleById(int id);
         int AddRole(AddNewRoleRequest request);
         int UpdateRole(EditRoleRequest request);
+        void DeleteRole(int id);
     }
 }

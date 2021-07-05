@@ -30,6 +30,13 @@ namespace CarDealer.Business.Services
             return newRole.Id;
         }
 
+        public void DeleteRole(int id)
+        {
+            Role role = roleRepository.GetById(id);
+            role.IsDeleted = true;
+            roleRepository.Update(role);
+        }
+
         public IList<RoleListResponse> GetAllRoles()
         {
             var dtoList = roleRepository.GetAll().ToList();
