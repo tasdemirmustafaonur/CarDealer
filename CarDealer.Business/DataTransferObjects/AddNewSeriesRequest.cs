@@ -10,6 +10,7 @@ namespace CarDealer.Business.DataTransferObjects
     public class AddNewSeriesRequest
     {
         public int BrandId { get; set; }
+        public int CategoryId { get; set; }
         [Required(ErrorMessage = "Seri tipi adını belirtmediniz")]
         public string Name { get; set; }
     }
