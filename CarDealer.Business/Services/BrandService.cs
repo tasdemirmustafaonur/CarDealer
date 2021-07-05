@@ -33,7 +33,9 @@ namespace CarDealer.Business.Services
 
         public void DeleteCategory(int id)
         {
-            brandRepository.Delete(id);
+            Brand brand = brandRepository.GetById(id);
+            brand.IsDeleted = true;
+            brandRepository.Update(brand);
         }
 
         public IList<BrandListResponse> GetBrandsWithList(List<int> brandList)

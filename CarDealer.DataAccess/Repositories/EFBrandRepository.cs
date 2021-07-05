@@ -39,12 +39,12 @@ namespace CarDealer.DataAccess.Repositories
 
         public IList<Brand> GetAll()
         {
-            return db.Brands.ToList();
+            return db.Brands.Where(x => x.IsDeleted == false).ToList();
         }
 
         public Brand GetById(int id)
         {
-            return db.Brands.AsNoTracking().FirstOrDefault(x=>x.Id==id);
+            return db.Brands.AsNoTracking().Where(x => x.IsDeleted == false).FirstOrDefault(x=>x.Id==id);
         }
 
         public IList<Brand> GetWithCriteria(Expression<Func<Brand, bool>> criteria)
