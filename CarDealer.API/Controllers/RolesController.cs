@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarDealer.API.Filters;
 using CarDealer.Business.DataTransferObjects;
 using CarDealer.Business.Interfaces;
 
@@ -28,6 +29,7 @@ namespace CarDealer.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [RoleExists]
         public IActionResult GetById(int id)
         {
             var roleListResponse = service.GetRoleById(id);
@@ -46,6 +48,19 @@ namespace CarDealer.API.Controllers
             {
                 int roleId = service.AddRole(request);
                 return CreatedAtAction(nameof(GetById), routeValues: new {id = roleId}, value: null);
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpPut("{id}")]
+        [RoleExists]
+        public IActionResult UpdateRole(int id, EditRoleRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                int newItemId = service.UpdateRole(request);
+                return Ok();
             }
 
             return BadRequest(ModelState);

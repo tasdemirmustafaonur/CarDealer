@@ -42,5 +42,12 @@ namespace CarDealer.Business.Services
             Role role = roleRepository.GetById(id);
             return role.ConvertFromEntity(mapper);
         }
+
+        public int UpdateRole(EditRoleRequest request)
+        {
+            var role = request.ConvertToEntity(mapper);
+            int id = roleRepository.Update(role).Id;
+            return id;
+        }
     }
 }

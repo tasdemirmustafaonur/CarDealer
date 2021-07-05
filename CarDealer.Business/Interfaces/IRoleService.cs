@@ -12,5 +12,6 @@ namespace CarDealer.Business.Interfaces
         IList<RoleListResponse> GetAllRoles();
         RoleListResponse GetRoleById(int id);
         int AddRole(AddNewRoleRequest request);
+        int UpdateRole(EditRoleRequest request);
     }
 }
