@@ -55,6 +55,8 @@ namespace CarDealer.Business.Mapper
             CreateMap<City, AddNewCityRequest>().ReverseMap();
             CreateMap<City, EditCityRequest>().ReverseMap();
 
+            CreateMap<Town, TownListResponse>().ReverseMap();
+
         }
     }
 }
