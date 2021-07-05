@@ -40,7 +40,7 @@ namespace CarDealer.API.Filters
                 var category = imageService.GetImageById(id);
                 if (category == null)
                 {
-                    context.Result = new NotFoundObjectResult(new { Message = $"{id} nolu tür bulunamadı." });
+                    context.Result = new NotFoundObjectResult(new { Message = $"{id} nolu resim bulunamadı." });
                     return;
                 }
 
