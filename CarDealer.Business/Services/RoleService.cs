@@ -22,6 +22,14 @@ namespace CarDealer.Business.Services
             this.roleRepository = roleRepository;
             this.mapper = mapper;
         }
+
+        public int AddRole(AddNewRoleRequest request)
+        {
+            var newRole = request.ConvertToRole(mapper);
+            roleRepository.Add(newRole);
+            return newRole.Id;
+        }
+
         public IList<RoleListResponse> GetAllRoles()
         {
             var dtoList = roleRepository.GetAll().ToList();

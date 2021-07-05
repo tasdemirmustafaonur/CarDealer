@@ -147,6 +147,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<Image>(request);
         }
 
+        public static Role ConvertToRole(this AddNewRoleRequest request, IMapper mapper)
+        {
+            return mapper.Map<Role>(request);
+        }
+
         //          CONVERT FROM ENTİTY
 
         public static CategoryListResponse ConvertFromEntity(this Category category, IMapper mapper)

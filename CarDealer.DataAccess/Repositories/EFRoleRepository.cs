@@ -21,7 +21,9 @@ namespace CarDealer.DataAccess.Repositories
         }
         public Role Add(Role entity)
         {
-            throw new NotImplementedException();
+            db.Roles.Add(entity);
+            db.SaveChanges();
+            return entity;
         }
 
         public void Delete(int id)
