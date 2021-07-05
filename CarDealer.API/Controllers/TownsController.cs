@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarDealer.API.Filters;
 using CarDealer.Business.DataTransferObjects;
 using CarDealer.Business.Interfaces;
 
@@ -28,6 +29,7 @@ namespace CarDealer.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [TownExists]
         public IActionResult GetById(int id)
         {
             var townListResponse = service.GetTownById(id);
@@ -52,7 +54,8 @@ namespace CarDealer.API.Controllers
         }
 
         [HttpPut("{id}")]
-        
+        [TownExists]
+
         public IActionResult UpdateTown(int id, EditTownRequest request)
         {
             if (ModelState.IsValid)
@@ -65,6 +68,8 @@ namespace CarDealer.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [TownExists]
+
         public IActionResult Delete(int id)
         {
             service.DeleteTown(id);

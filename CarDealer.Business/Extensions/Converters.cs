@@ -74,6 +74,11 @@ namespace CarDealer.Business.Extensions
             return mapper.Map<List<TownListResponse>>(towns);
         }
 
+        public static List<ImageListResponse> ConvertToListResponse(this List<Image> images, IMapper mapper)
+        {
+            return mapper.Map<List<ImageListResponse>>(images);
+        }
+
 
 
         //       ADD NEW ENTİTY REQUEST
